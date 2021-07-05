@@ -38,6 +38,15 @@ main {
     padding: 1rem;
 }
 
+main h1 {
+    color: var(--accent-colour);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.3ch;
+    margin-bottom: 2rem;
+}
+
 .navbar {
     position: fixed;
     background-color: var(--bg-primary);
