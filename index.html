@@ -5,16 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown - Nathan Totten - 40290303</title>
+
+    <!-- Reference stylesheet -->
+
     <link rel="stylesheet" href="CSS/style.css" />
+
+    <!-- Fontawesome Icons -->
+
     <script
       src="https://kit.fontawesome.com/5ef7f84602.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Reference JS  -->
+
     <script defer src="JS/app.js"></script>
   </head>
   <body>
+    <!-- Responsive navbar/menu -->
+
     <nav class="navbar">
       <ul class="navbar-nav">
+        <!-- Logo list element -->
+
         <li class="logo">
           <a href="#" class="nav-link">
             <span class="link-text logo-text">Countdown!</span>
@@ -24,12 +37,16 @@
           </a>
         </li>
 
+        <!-- First menu item - Play game -->
+
         <li class="nav-item">
           <a href="#" class="nav-link">
             <span class="play"> <i class="fas fa-play fa-2x"></i> </span>
             <span class="link-text">Start</span>
           </a>
         </li>
+
+        <!-- Second menu item - Stop game -->
 
         <li class="nav-item">
           <a href="#" class="nav-link">
@@ -38,6 +55,8 @@
           </a>
         </li>
 
+        <!-- Third menu item - Reset game -->
+
         <li class="nav-item">
           <a href="#" class="nav-link">
             <span class="reset"> <i class="fas fa-history fa-2x"></i> </span>
@@ -45,16 +64,21 @@
           </a>
         </li>
 
+        <!-- Fourth menu item - Cycle between themes -->
+
         <li class="nav-item" id="themeButton">
           <a href="#" class="nav-link">
+            <!-- Light theme -->
             <span class="theme-icon" id="lightIcon">
               <i class="fas fa-sun fa-2x"></i>
             </span>
 
+            <!-- Solar theme -->
             <span class="theme-icon" id="solarIcon">
               <i class="far fa-sun fa-2x"></i>
             </span>
 
+            <!-- Dark theme -->
             <span class="theme-icon" id="darkIcon">
               <i class="fas fa-moon fa-2x"></i>
             </span>
