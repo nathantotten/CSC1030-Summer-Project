@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
 
 :root {
-    font-size: 16px;
+    font-size:20px;
     font-family: 'Oxygen', sans-serif;
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
@@ -22,11 +22,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #1e1e24;
+    background: #23232e;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #71B340;
+    background: #0090C1;
 }
 
 main {
@@ -35,8 +35,6 @@ main {
 }
 
 .navbar {
-    width: 5rem;
-    height: 100vh;
     position: fixed;
     background-color: var(--bg-primary);
     transition: width 200ms ease;
@@ -58,12 +56,10 @@ main {
     width: 100%;
 }
 
-.nav-item:last-child {
-    margin-top: auto;
-}
+
 
 .nav-link {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     display: flex;
     align-items: center;
     height: 5rem;
@@ -84,18 +80,8 @@ main {
     margin-left: 3rem;
 }
 
-.navbar:hover {
-    width: 16rem;
-}
-
-.navbar:hover .link-text {
-    display:block;
-}
-
-
-
 .play, .stop, .reset, .theme, .menu-logo{
-    color:#71B340;
+    color:#0090C1;
     transition: var(--transition-speed);
 }
 
@@ -105,8 +91,8 @@ main {
     margin-bottom: 1rem;
     color: var(--text-secondary);
     background: var(--bg-secondary);
-    font-size: 16px;
-    letter-spacing: 0.3ch;
+    font-size: 20px;
+    letter-spacing: 0.5ch;
     width: 100%;
 }
 
@@ -117,4 +103,61 @@ main {
 
 .navbar:hover .menu-logo {
     transform: rotate(-180deg);
+}
+
+/* Smaller screens */
+
+@media only screen and (max-width: 600px) {
+
+    .navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding-right: 1.25rem;
+    }
+
+    main {
+        margin: 0;
+        margin-bottom: 5rem;
+    }
+
+    .nav-item {
+        margin-top: auto;
+    }
+
+}
+
+/* Larger screens */
+
+@media only screen and (min-width: 600px) {
+    .navbar {
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
+
+    .navbar:hover {
+        width: 18rem;
+    }
+
+    .navbar:hover .link-text {
+        display:block;
+        transition: opacity var(--transition-speed);
+    }
+
+    .nav-item:last-child {
+        margin-top: auto;
+    }
 }
