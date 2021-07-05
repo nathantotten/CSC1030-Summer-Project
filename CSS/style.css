@@ -5,14 +5,17 @@
     font-family: 'Oxygen', sans-serif;
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
+    --bg-main: #474747;
     --bg-primary: #23232e;
     --bg-secondary: #080708;
+    /* --accent-colour: #FF4365; */
+    --accent-colour: #F34213;
     --transition-speed: 600ms;
 }
 
 body {
-    color: black;
-    background-color: white;
+    color: var(--text-secondary);
+    background-color: var(--bg-primary);
     margin: 0;
     padding: 0;
 }
@@ -26,7 +29,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #0090C1;
+    background: var(--accent-colour);
 }
 
 main {
@@ -81,7 +84,7 @@ main {
 }
 
 .play, .stop, .reset, .theme, .menu-logo{
-    color:#0090C1;
+    color:var(--accent-colour);
     transition: var(--transition-speed);
 }
 
@@ -168,6 +171,7 @@ main {
     --text-secondary: #ececec;
     --bg-primary: #23232e;
     --bg-secondary: #141418;
+    --accent-colour: #F34213; 
   }
   
   .light {
@@ -175,6 +179,7 @@ main {
     --text-secondary: #000000;
     --bg-primary: #ffffff;
     --bg-secondary: #e4e4e4;
+    --accent-colour: #5448C8;
   }
   
   .solar {
@@ -182,6 +187,7 @@ main {
     --text-secondary: #35535c;
     --bg-primary: #fdf6e3;
     --bg-secondary: #f5e5b8;
+    --accent-colour: black;
   }
   
   .theme-icon {
