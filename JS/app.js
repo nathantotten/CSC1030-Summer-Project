@@ -181,4 +181,12 @@ function startTimer(minutes) {
           return (n < 10 ? '0' : '') + n;
       }
       
+
+      
+}
+
+function reset() {
+    location.reload()
+    clearInterval(interval)
+    clearTimeout(timeOut)
 }
