@@ -96,3 +96,4 @@ function randomVowel() {
 // console.log(random3)
 
 // console.log('remaining vowels: ' + remainingVowels)
+
