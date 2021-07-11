@@ -219,38 +219,116 @@ logo + animation will come into effect here too. */
     --accent-colour: #F34213; 
   }
   
-  .light {
-    --text-primary: #1f1f1f;
-    --text-secondary: #000000;
-    --bg-primary: #ffffff;
-    --bg-secondary: #e4e4e4;
-    --accent-colour: #5448C8;
-  }
-  
-  .solar {
-    --text-primary: #576e75;
-    --text-secondary: #35535c;
-    --bg-primary: #fdf6e3;
-    --bg-secondary: #f5e5b8;
-    --accent-colour: black;
-  }
-  
-  /* CSS to display relevant icon depending on which theme is in use. */
+.light {
+--text-primary: #1f1f1f;
+--text-secondary: #000000;
+--bg-primary: #ffffff;
+--bg-secondary: #e4e4e4;
+--accent-colour: #5448C8;
+}
 
-  .theme-icon {
-    display: none;
-  }
-  
-  .dark #darkIcon {
-    display: block;
-  }
-  
-  .light #lightIcon {
-    display: block;
-  }
-  
-  .solar #solarIcon {
-    display: block;
-  }
+.solar {
+--text-primary: #576e75;
+--text-secondary: #35535c;
+--bg-primary: #fdf6e3;
+--bg-secondary: #f5e5b8;
+--accent-colour: black;
+}
 
-  
+/* CSS to display relevant icon depending on which theme is in use. */
+
+.theme-icon {
+display: none;
+}
+
+.dark #darkIcon {
+display: block;
+}
+
+.light #lightIcon {
+display: block;
+}
+
+.solar #solarIcon {
+display: block;
+}
+
+/* Countdown timer styling */
+
+.countdown-label {
+color: var(--text-secondary);
+text-align: center;
+text-transform: uppercase;
+display: inline-block;
+letter-spacing: 2px;
+margin-top: 9px
+}
+
+#countdown{
+box-shadow: 0 1px 2px 0 rgba(1, 1, 1, 0.4);
+width: 50%;
+height: 140px;
+text-align: center;
+background: var(--bg-primary);
+
+border-radius: 5px;
+
+margin: auto;
+
+}
+
+
+#countdown #tiles{
+color: #fff;
+/* position: relative; */
+/* z-index: 1; */
+text-shadow: 1px 1px 0px #ccc;
+display: inline-block;
+font-family: Arial, sans-serif;
+text-align: center;
+
+padding: 20px;
+border-radius: 5px 5px 5px 5px;
+font-size: 48px;
+font-weight: thin;
+display: block;
+    
+}
+
+.color-full {
+background: #53bb74;
+}
+.color-half {
+background: #ebc85d;
+}
+.color-empty {
+background: #e5554e;
+}
+
+#countdown #tiles > span{
+    width: 70px;
+    max-width: 70px;
+
+    padding: 18px 0;
+    /* position: relative; */
+}
+
+
+
+#countdown .labels{
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    position: absolute;
+    bottom: 8px;
+}
+
+#countdown .labels li{
+    width: 102px;
+    font: bold 15px 'Droid Sans', Arial, sans-serif;
+    color: #f47321;
+    text-shadow: 1px 1px 0px #000;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+}

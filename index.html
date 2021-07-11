@@ -17,6 +17,13 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Make JQuery available to script for proper function of timer -->
+
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+
     <!-- Reference JS  -->
 
     <script defer src="JS/app.js"></script>
@@ -39,7 +46,7 @@
 
         <!-- First menu item - Play game -->
 
-        <li class="nav-item">
+        <li class="nav-item" id="play" onclick="startTimer(0.5)">
           <a href="#" class="nav-link">
             <span class="play"> <i class="fas fa-play fa-2x"></i> </span>
             <span class="link-text">Start</span>
@@ -69,16 +76,19 @@
         <li class="nav-item" id="themeButton">
           <a href="#" class="nav-link">
             <!-- Light theme -->
+
             <span class="theme-icon" id="lightIcon">
               <i class="fas fa-sun fa-2x"></i>
             </span>
 
             <!-- Solar theme -->
+
             <span class="theme-icon" id="solarIcon">
               <i class="far fa-sun fa-2x"></i>
             </span>
 
             <!-- Dark theme -->
+
             <span class="theme-icon" id="darkIcon">
               <i class="fas fa-moon fa-2x"></i>
             </span>
@@ -93,6 +103,12 @@
 
     <main>
       <h1>Countdown</h1>
+      <br />
+      <input type="hidden" id="set-time" />
+      <div id="countdown">
+        <div id="tiles" class="color-full">00:00:00</div>
+        <div class="countdown-label">Time Remaining</div>
+      </div>
     </main>
   </body>
 </html>
