@@ -211,3 +211,10 @@ function randomVowel() {
 // var minutes = 0.5;
 
 // ---------- Populating character cards ----------
+
+var cardInFocus;
+
+// By default, start with focus on the first card
+function populateCard(char) {
+
+}
