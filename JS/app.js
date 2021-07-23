@@ -171,6 +171,7 @@ function populateCard(char) {
 function randomConsonant() {
     var randCons = '';
     let consonants = sessionStorage.getItem('consonants');
+    console.log(consonants)
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
     updatedConsonants = consonants.replace(randCons, '');
     sessionStorage.setItem('consonants', updatedConsonants);    // console.log(randCons)
@@ -182,6 +183,7 @@ function randomConsonant() {
 function randomVowel() {
     var randVowel = '';
     let vowels = sessionStorage.getItem('vowels');
+    console.log(vowels)
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
     updatedVowels = vowels.replace(randVowel, '');
     sessionStorage.setItem('vowels', updatedVowels);
