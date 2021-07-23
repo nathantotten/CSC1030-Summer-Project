@@ -212,7 +212,12 @@ function randomVowel() {
 
 // ---------- Populating character cards ----------
 
+const cards = document.querySelectorAll(".card")
+const cardsArray = Array.from(cards)
+
 var cardInFocus;
+cardInFocus = cardsArray[0]
+// console.log(cardInFocus.innerHTML)
 
 // By default, start with focus on the first card
 function populateCard(char) {
