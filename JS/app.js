@@ -142,6 +142,28 @@ function reset() {
     clearTimeout(timeOut)
 }
 
+
+
+// ---------- Populating character cards ----------
+
+const cards = document.querySelectorAll(".card")
+const cardsArray = Array.from(cards)
+
+var cardInFocus;
+sessionStorage.setItem('count', 0);
+
+// console.log(cardInFocus.innerHTML)
+
+// By default, start with focus on the first card
+function populateCard(char) {
+    var cardCount = sessionStorage.getItem('count');
+    cardInFocus = cardsArray[cardCount]
+    cardInFocus.innerHTML = char
+    cardCount++
+    console.log(cardCount)
+    sessionStorage.setItem('count', cardCount);
+}
+
 // ---------- Generation of random vowels and consonants ----------
 
 // Generate a random consonant.
@@ -152,7 +174,7 @@ function randomConsonant() {
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
     updatedConsonants = consonants.replace(randCons, '');
     sessionStorage.setItem('consonants', updatedConsonants);    // console.log(randCons)
-    return randCons;
+    populateCard(randCons)
 }
 
 // Generate a random vowel.
@@ -163,7 +185,7 @@ function randomVowel() {
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
     updatedVowels = vowels.replace(randVowel, '');
     sessionStorage.setItem('vowels', updatedVowels);
-    return randVowel;
+    populateCard(randVowel)
 }
 
 // ---------- Testing random consonant and vowel generation ----------
@@ -209,17 +231,3 @@ function randomVowel() {
 
 // var playButton = document.getElementById("play")
 // var minutes = 0.5;
-
-// ---------- Populating character cards ----------
-
-const cards = document.querySelectorAll(".card")
-const cardsArray = Array.from(cards)
-
-var cardInFocus;
-cardInFocus = cardsArray[0]
-// console.log(cardInFocus.innerHTML)
-
-// By default, start with focus on the first card
-function populateCard(char) {
-
-}
