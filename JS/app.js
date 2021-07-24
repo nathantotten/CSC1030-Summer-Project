@@ -173,8 +173,8 @@ function randomConsonant() {
     let consonants = sessionStorage.getItem('consonants');
     console.log(consonants)
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
-    updatedConsonants = consonants.replace(randCons, '');
-    sessionStorage.setItem('consonants', updatedConsonants);    // console.log(randCons)
+    // updatedConsonants = consonants.replace(randCons, '');
+    // sessionStorage.setItem('consonants', updatedConsonants);    // console.log(randCons)
     populateCard(randCons)
 }
 
@@ -185,8 +185,8 @@ function randomVowel() {
     let vowels = sessionStorage.getItem('vowels');
     console.log(vowels)
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
-    updatedVowels = vowels.replace(randVowel, '');
-    sessionStorage.setItem('vowels', updatedVowels);
+    // updatedVowels = vowels.replace(randVowel, '');
+    // sessionStorage.setItem('vowels', updatedVowels);
     populateCard(randVowel)
 }
 
