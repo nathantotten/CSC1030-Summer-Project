@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown - Nathan Totten - 40290303</title>
+
+    <!-- Reference stylesheet -->
+
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <!-- Fontawesome Icons -->
+
+    <script
+      src="https://kit.fontawesome.com/5ef7f84602.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Make JQuery available to script for proper function of timer -->
+
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+
+    <!-- Reference JS  -->
+
+    <script defer src="JS/app.js"></script>
+  </head>
+  <body>
+    <!-- Responsive navbar/menu -->
+
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <!-- Logo list element -->
+
+        <li class="logo">
+          <a href="#" class="nav-link">
+            <span class="link-text logo-text">Countdown!</span>
+            <span class="menu-logo"
+              ><i class="fas fa-hourglass-end fa-2x"></i
+            ></span>
+          </a>
+        </li>
+
+        <!-- First menu item - Play game -->
+
+        <li class="nav-item" id="play" onclick="startTimer(0.5)">
+          <a href="#" class="nav-link">
+            <span class="play"> <i class="fas fa-play fa-2x"></i> </span>
+            <span class="link-text">Start</span>
+          </a>
+        </li>
+
+        <!-- Second menu item - Reset game -->
+
+        <li class="nav-item" id="reset" onclick="reset()">
+          <a href="#" class="nav-link">
+            <span class="reset"> <i class="fas fa-history fa-2x"></i> </span>
+            <span class="link-text">Reset</span>
+          </a>
+        </li>
+
+        <!-- Third menu item - Cycle between themes -->
+
+        <li class="nav-item" id="themeButton">
+          <a href="#" class="nav-link">
+            <!-- Light theme -->
+
+            <span class="theme-icon" id="lightIcon">
+              <i class="fas fa-sun fa-2x"></i>
+            </span>
+
+            <!-- Solar theme -->
+
+            <span class="theme-icon" id="solarIcon">
+              <i class="far fa-sun fa-2x"></i>
+            </span>
+
+            <!-- Dark theme -->
+
+            <span class="theme-icon" id="darkIcon">
+              <i class="fas fa-moon fa-2x"></i>
+            </span>
+
+            <span class="link-text">Theme</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main container for content/game -->
+
+    <main>
+      <!-- This page will be the default landing page that containts instructions etc. -->
+
+      <h1>Countdown</h1>
+      <!-- Add intro -->
+      <!-- Add Welcome -->
+      <h2>Welcome to my Countdown game!</h2>
+
+      <!-- Add instructions -->
+      <p>New here? The game is pretty simple!</p>
+      <hr />
+      <ol>
+        <li>
+          Use the "Random Vowel" button to add a random vowel to the board
+        </li>
+        <li>
+          Use the "Random Consonant" button to add a random consonant to the
+          board
+        </li>
+        <li>
+          Keep pressing either button until you have a variety of vowels and
+          consonants on the board
+        </li>
+        <li>When all 12 spaces are populated, the timer will begin</li>
+        <li>
+          You now have 30 seconds to list as many words using the letters shown
+          as you can!
+        </li>
+        <li>The longer the word, the more points you get!</li>
+      </ol>
+      <!-- Add "Let's get started!" button or something similar to go to main game page -->
+    </main>
+  </body>
+</html>
