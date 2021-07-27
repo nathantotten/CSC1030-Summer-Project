@@ -212,7 +212,6 @@ function randomVowel() {
 // random7 = randomConsonant();
 // random8 = randomConsonant();
 
-// remainingConsonants = sessionStorage.getItem('consonants');
 
 // console.log(random1)
 // console.log(random2)
@@ -221,7 +220,6 @@ function randomVowel() {
 // console.log(random5)
 // console.log(random6)
 // console.log(random7)
-// console.log(remainingConsonants)
 
 // Test the random vowel feature.
 
@@ -229,19 +227,11 @@ function randomVowel() {
 // random2 = randomVowel();
 // random3 = randomVowel();
 
-// remainingVowels = sessionStorage.getItem('vowels');
 
 // console.log(random1)
 // console.log(random2)
 // console.log(random3)
 
-// console.log('remaining vowels: ' + remainingVowels)
-
-
-//set actual timer
-
-// var playButton = document.getElementById("play")
-// var minutes = 0.5;
 
 // ---------- Validating user input ----------
 
