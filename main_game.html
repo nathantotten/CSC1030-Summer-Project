@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown - Nathan Totten - 40290303</title>
+
+    <!-- Reference stylesheet -->
+
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <!-- Fontawesome Icons -->
+
+    <script
+      src="https://kit.fontawesome.com/5ef7f84602.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Make JQuery available to script for proper function of timer -->
+
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+
+    <!-- Reference JS  -->
+
+    <script defer src="JS/app.js"></script>
+  </head>
+  <body>
+    <!-- Responsive navbar/menu -->
+
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <!-- Logo list element -->
+
+        <li class="logo">
+          <a href="#" class="nav-link">
+            <span class="link-text logo-text">Countdown!</span>
+            <span class="menu-logo"
+              ><i class="fas fa-hourglass-end fa-2x"></i
+            ></span>
+          </a>
+        </li>
+
+        <!-- First menu item - Play game -->
+
+        <li class="nav-item" id="play">
+          <a href="index.html" class="nav-link">
+            <span class="play"> <i class="fas fa-home fa-2x"></i> </span>
+            <span class="link-text">Home</span>
+          </a>
+        </li>
+
+        <!-- Second menu item - Reset game -->
+
+        <li class="nav-item" id="reset" onclick="reset()">
+          <a href="#" class="nav-link">
+            <span class="reset"> <i class="fas fa-history fa-2x"></i> </span>
+            <span class="link-text">Reset</span>
+          </a>
+        </li>
+
+        <!-- Third menu item - Cycle between themes -->
+
+        <li class="nav-item" id="themeButton">
+          <a href="#" class="nav-link">
+            <!-- Light theme -->
+
+            <span class="theme-icon" id="lightIcon">
+              <i class="fas fa-sun fa-2x"></i>
+            </span>
+
+            <!-- Solar theme -->
+
+            <span class="theme-icon" id="solarIcon">
+              <i class="far fa-sun fa-2x"></i>
+            </span>
+
+            <!-- Dark theme -->
+
+            <span class="theme-icon" id="darkIcon">
+              <i class="fas fa-moon fa-2x"></i>
+            </span>
+
+            <span class="link-text">Theme</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main container for content/game -->
+
+    <main>
+      <h1>Countdown</h1>
+      <br />
+      <input type="hidden" id="set-time" />
+      <div id="countdown">
+        <div id="tiles" class="color-full">00:00:00</div>
+        <div class="countdown-label">Time Remaining</div>
+      </div>
+      <br />
+      <section class="letters">
+        <div class="card" id="card-1">-</div>
+        <div class="card" id="card-2">-</div>
+        <div class="card" id="card-3">-</div>
+        <div class="card" id="card-4">-</div>
+        <div class="card" id="card-5">-</div>
+        <div class="card" id="card-6">-</div>
+        <div class="card" id="card-7">-</div>
+        <div class="card" id="card-8">-</div>
+        <div class="card" id="card-9">-</div>
+        <div class="card" id="card-10">-</div>
+        <div class="card" id="card-11">-</div>
+        <div class="card" id="card-12">-</div>
+      </section>
+
+      <!-- TO DO -->
+
+      <div class="buttons">
+        <!-- ~ Add buttons to randomly generate consonant or vowel -->
+        <button name="simple_button" type="button" onclick="randomConsonant()">
+          Random Consonant
+        </button>
+        <button name="simple_button" type="button" onclick="randomVowel()">
+          Random Vowel
+        </button>
+      </div>
+
+      <!-- ~ Figure out how to populate card classes with the randomly generated consonant/vowel and auto focus on the next card -->
+      <!-- ~ Input field for user's words - field must be made unavailable when timeout is reached -->
+      <div class="input" id="word-input">
+        <input
+          required
+          maxlength="12"
+          type="text"
+          disabled
+          id="input-box"
+          placeholder="Enter word here..."
+        />
+      </div>
+      <div class="submit">
+        <button type="submit" id="submit-btn" disabled onclick="checkInput()">
+          Check Word
+        </button>
+      </div>
+      <!-- ~ Field must have some basic validation: Add the letters generated to an array in session storage, check the letters input against the letters in the cards -->
+      <!-- ~ After each valid word is entered, display it below the input field so user can tell what has been typed -->
+      <div class="words-display"></div>
+      <!-- ~ When timer is complete, calculate score based on total character length of all words input. 4 Letter word = 4 points! -->
+    </main>
+  </body>
+</html>

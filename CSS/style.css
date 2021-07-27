@@ -441,3 +441,40 @@ background: #e5554e;
      font-weight: bold;
      text-transform: uppercase;
  }
+
+ .submit {
+     display: grid;
+     place-items: center;
+     padding: 1rem;
+ }
+
+ #submit-btn {
+    width: 15.5rem;
+    height: 2rem;
+    border-radius: 4px;
+    border-color: var(--accent-colour);
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em; 
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+ }
+
+ 
+
+ #submit-btn:hover:enabled  {
+     cursor:pointer;
+     background-color: var(--bg-primary);
+ }
+
+
+ .instructions {
+     display: grid;
+     place-items: center;
+ }
+
+ .instructions li {
+     margin: 1rem;
+ }

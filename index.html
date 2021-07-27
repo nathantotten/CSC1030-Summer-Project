@@ -46,21 +46,21 @@
 
         <!-- First menu item - Play game -->
 
-        <!-- <li class="nav-item" id="play" onclick="startTimer(0.5)">
-          <a href="#" class="nav-link">
+        <li class="nav-item" id="play">
+          <a href="main_game.html" class="nav-link">
             <span class="play"> <i class="fas fa-play fa-2x"></i> </span>
             <span class="link-text">Start</span>
           </a>
-        </li> -->
+        </li>
 
-        <!-- Second menu item - Reset game -->
+        <!-- Second menu item - Reset game
 
         <li class="nav-item" id="reset" onclick="reset()">
           <a href="#" class="nav-link">
             <span class="reset"> <i class="fas fa-history fa-2x"></i> </span>
             <span class="link-text">Reset</span>
           </a>
-        </li>
+        </li> -->
 
         <!-- Third menu item - Cycle between themes -->
 
@@ -93,62 +93,43 @@
     <!-- Main container for content/game -->
 
     <main>
+      <!-- This page will be the default landing page that containts instructions etc. -->
+
       <h1>Countdown</h1>
-      <br />
-      <input type="hidden" id="set-time" />
-      <div id="countdown">
-        <div id="tiles" class="color-full">00:00:00</div>
-        <div class="countdown-label">Time Remaining</div>
-      </div>
-      <br />
-      <section class="letters">
-        <div class="card" id="card-1">-</div>
-        <div class="card" id="card-2">-</div>
-        <div class="card" id="card-3">-</div>
-        <div class="card" id="card-4">-</div>
-        <div class="card" id="card-5">-</div>
-        <div class="card" id="card-6">-</div>
-        <div class="card" id="card-7">-</div>
-        <div class="card" id="card-8">-</div>
-        <div class="card" id="card-9">-</div>
-        <div class="card" id="card-10">-</div>
-        <div class="card" id="card-11">-</div>
-        <div class="card" id="card-12">-</div>
-      </section>
+      <!-- Add intro -->
+      <!-- Add Welcome -->
+      <h2>Welcome to my Countdown game!</h2>
 
-      <!-- TO DO -->
-
-      <div class="buttons">
-        <!-- ~ Add buttons to randomly generate consonant or vowel -->
-        <button name="simple_button" type="button" onclick="randomConsonant()">
-          Random Consonant
-        </button>
-        <button name="simple_button" type="button" onclick="randomVowel()">
-          Random Vowel
-        </button>
+      <!-- Add instructions -->
+      <p>New here? The game is pretty simple!</p>
+      <hr />
+      <div class="instructions">
+        <ol>
+          <li>
+            Use the "Random Vowel" button to add a random vowel to the board
+          </li>
+          <li>
+            Use the "Random Consonant" button to add a random consonant to the
+            board
+          </li>
+          <li>
+            Keep pressing either button until you have a variety of vowels and
+            consonants on the board
+          </li>
+          <li>When all 12 spaces are populated, the timer will begin</li>
+          <li>
+            You now have 30 seconds to list as many words using the letters
+            shown as you can!
+          </li>
+          <li>The longer the word, the more points you get!</li>
+          <li>
+            When you are ready, navigate to the menu on the left and click
+            "Start"
+          </li>
+          <li>Have fun!</li>
+        </ol>
       </div>
-
-      <!-- ~ Figure out how to populate card classes with the randomly generated consonant/vowel and auto focus on the next card -->
-      <!-- ~ Input field for user's words - field must be made unavailable when timeout is reached -->
-      <div class="input" id="word-input">
-        <input
-          required
-          maxlength="12"
-          type="text"
-          disabled
-          id="input-box"
-          placeholder="Enter word here..."
-        />
-      </div>
-      <div class="submit">
-        <button type="submit" id="submit-btn" disabled onclick="checkInput()">
-          Check Word
-        </button>
-      </div>
-      <!-- ~ Field must have some basic validation: Add the letters generated to an array in session storage, check the letters input against the letters in the cards -->
-      <!-- ~ After each valid word is entered, display it below the input field so user can tell what has been typed -->
-      <div class="words-display"></div>
-      <!-- ~ When timer is complete, calculate score based on total character length of all words input. 4 Letter word = 4 points! -->
+      <!-- Add "Let's get started!" button or something similar to go to main game page -->
     </main>
   </body>
 </html>
