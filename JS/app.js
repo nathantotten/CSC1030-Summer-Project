@@ -70,7 +70,7 @@ function startTimer(minutes) {
     timeOut = setTimeout(
         function() 
         {
-          alert( 'done' );
+          alert( 'Game Over! - Click "Reset" in the menu to play again' );
           inputBox.disabled = true;
           submitButton.disabled = true;
         }, time_limit );
