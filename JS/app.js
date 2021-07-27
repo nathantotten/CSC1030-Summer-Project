@@ -239,18 +239,25 @@ function randomVowel() {
 const submitButton = document.getElementById("submit-btn")
 
 function checkInput() {
-    var valid = false;
-    var inputVal = document.getElementById("input-box").value;
 
-    for (var i = 0; i < inputVal.length; i++) {
-        let comparisonChar = inputVal.charAt(i);
-        console.log(comparisonChar)
+    // Retrieve user input
+    // Retrieve characters from cards
+    // Check if characters from cards include user input characters
+    // Count the number of times each letter appears in the cards, and make 
+    //  sure that the number of times it appears in input is <= the number of appearances in cards.
 
-        if (chars.includes(comparisonChar)) {
-            valid = true;
-        }
-        console.log(valid)
-    }
-    document.getElementById("input-box").value = "";
+    // var valid = false;
+    // var inputVal = document.getElementById("input-box").value;
+
+    // for (var i = 0; i < inputVal.length; i++) {
+    //     let comparisonChar = inputVal.charAt(i);
+    //     console.log(comparisonChar)
+
+    //     if (chars.includes(comparisonChar)) {
+    //         valid = true;
+    //     }
+    //     console.log(valid)
+    // }
+    // document.getElementById("input-box").value = "";
     // console.log(inputVal)
 }
