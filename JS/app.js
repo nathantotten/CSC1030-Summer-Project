@@ -163,6 +163,7 @@ function populateCard(char) {
     cardInFocus = cardsArray[cardCount]
     cardInFocus.innerHTML = char
     chars.push(char);
+    console.log(chars)
     if (cardCount == 11) {
         inputBox.disabled = false;
         submitButton.disabled = false;
@@ -239,5 +240,7 @@ const submitButton = document.getElementById("submit-btn")
 
 function checkInput() {
     var inputVal = document.getElementById("input-box").value;
-    console.log(inputVal)
+    let inputArray = Array.from(inputVal);
+    document.getElementById("input-box").value = "";
+    console.log(inputArray)
 }
