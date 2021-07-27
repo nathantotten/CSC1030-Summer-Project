@@ -72,6 +72,7 @@ function startTimer(minutes) {
         {
           alert( 'done' );
           inputBox.disabled = true;
+          submitButton.disabled = true;
         }, time_limit );
       
 
@@ -149,8 +150,9 @@ function reset() {
 
 const cards = document.querySelectorAll(".card")
 const cardsArray = Array.from(cards)
-const inputBox = document.getElementById('input-box')
+const inputBox = document.getElementById("input-box")
 var cardInFocus;
+const chars = [];
 sessionStorage.setItem('count', 0);
 
 // console.log(cardInFocus.innerHTML)
@@ -160,8 +162,10 @@ function populateCard(char) {
     var cardCount = sessionStorage.getItem('count');
     cardInFocus = cardsArray[cardCount]
     cardInFocus.innerHTML = char
+    chars.push(char);
     if (cardCount == 11) {
         inputBox.disabled = false;
+        submitButton.disabled = false;
         startTimer(0.5)
     }
     cardCount++
@@ -238,3 +242,12 @@ function randomVowel() {
 
 // var playButton = document.getElementById("play")
 // var minutes = 0.5;
+
+// ---------- Validating user input ----------
+
+const submitButton = document.getElementById("submit-btn")
+
+function checkInput() {
+    var inputVal = document.getElementById("input-box").value;
+    console.log(inputVal)
+}
