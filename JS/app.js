@@ -152,7 +152,7 @@ const cards = document.querySelectorAll(".card")
 const cardsArray = Array.from(cards)
 const inputBox = document.getElementById("input-box")
 var cardInFocus;
-const chars = [];
+var chars = "";
 sessionStorage.setItem('count', 0);
 
 // console.log(cardInFocus.innerHTML)
@@ -162,7 +162,7 @@ function populateCard(char) {
     var cardCount = sessionStorage.getItem('count');
     cardInFocus = cardsArray[cardCount]
     cardInFocus.innerHTML = char
-    chars.push(char);
+    chars = chars.concat(char);
     console.log(chars)
     if (cardCount == 11) {
         inputBox.disabled = false;
@@ -181,7 +181,7 @@ function populateCard(char) {
 function randomConsonant() {
     var randCons = '';
     let consonants = sessionStorage.getItem('consonants');
-    console.log(consonants)
+    // console.log(consonants)
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
     // updatedConsonants = consonants.replace(randCons, '');
     // sessionStorage.setItem('consonants', updatedConsonants);    // console.log(randCons)
@@ -193,7 +193,7 @@ function randomConsonant() {
 function randomVowel() {
     var randVowel = '';
     let vowels = sessionStorage.getItem('vowels');
-    console.log(vowels)
+    // console.log(vowels)
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
     // updatedVowels = vowels.replace(randVowel, '');
     // sessionStorage.setItem('vowels', updatedVowels);
@@ -239,8 +239,18 @@ function randomVowel() {
 const submitButton = document.getElementById("submit-btn")
 
 function checkInput() {
+    var valid = false;
     var inputVal = document.getElementById("input-box").value;
-    let inputArray = Array.from(inputVal);
+
+    for (var i = 0; i < inputVal.length; i++) {
+        let comparisonChar = inputVal.charAt(i);
+        console.log(comparisonChar)
+
+        if (chars.includes(comparisonChar)) {
+            valid = true;
+        }
+        console.log(valid)
+    }
     document.getElementById("input-box").value = "";
-    console.log(inputArray)
+    // console.log(inputVal)
 }
