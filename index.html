@@ -46,12 +46,12 @@
 
         <!-- First menu item - Play game -->
 
-        <li class="nav-item" id="play" onclick="startTimer(0.5)">
+        <!-- <li class="nav-item" id="play" onclick="startTimer(0.5)">
           <a href="#" class="nav-link">
             <span class="play"> <i class="fas fa-play fa-2x"></i> </span>
             <span class="link-text">Start</span>
           </a>
-        </li>
+        </li> -->
 
         <!-- Second menu item - Reset game -->
 
@@ -131,7 +131,7 @@
       <!-- ~ Figure out how to populate card classes with the randomly generated consonant/vowel and auto focus on the next card -->
       <!-- ~ Input field for user's words - field must be made unavailable when timeout is reached -->
       <div class="input" id="word-input">
-        <input required maxlength="12" type="text" disabled />
+        <input required maxlength="12" type="text" disabled id="input-box" />
       </div>
       <!-- ~ Field must have some basic validation: Add the letters generated to an array in session storage, check the letters input against the letters in the cards -->
       <!-- ~ After each valid word is entered, display it below the input field so user can tell what has been typed -->

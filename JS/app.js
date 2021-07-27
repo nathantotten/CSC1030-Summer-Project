@@ -71,6 +71,7 @@ function startTimer(minutes) {
         function() 
         {
           alert( 'done' );
+          inputBox.disabled = true;
         }, time_limit );
       
 
@@ -148,7 +149,7 @@ function reset() {
 
 const cards = document.querySelectorAll(".card")
 const cardsArray = Array.from(cards)
-
+const inputBox = document.getElementById('input-box')
 var cardInFocus;
 sessionStorage.setItem('count', 0);
 
@@ -159,6 +160,10 @@ function populateCard(char) {
     var cardCount = sessionStorage.getItem('count');
     cardInFocus = cardsArray[cardCount]
     cardInFocus.innerHTML = char
+    if (cardCount == 11) {
+        inputBox.disabled = false;
+        startTimer(0.5)
+    }
     cardCount++
     console.log(cardCount)
     sessionStorage.setItem('count', cardCount);
