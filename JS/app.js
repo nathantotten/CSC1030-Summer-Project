@@ -276,7 +276,7 @@ function checkInput() {
             validWord = false;
             
             // Alert the player if they used a character too many times.
-            alert("Invalid word! - You used %c too many times.", comparisonChar)
+            alert("Invalid word! - You used a character too many times.", comparisonChar)
             
             // Clear the input field for easier input of new word.
             document.getElementById("input-box").value = '';
@@ -289,27 +289,11 @@ function checkInput() {
 
     }
 
-    // Count the number of times each letter appears in the cards, and make 
-    //  sure that the number of times it appears in input is <= the number of appearances in cards.
-
-    // var valid = false;
-    // var inputVal = document.getElementById("input-box").value;
-
-    // for (var i = 0; i < inputVal.length; i++) {
-    //     let comparisonChar = inputVal.charAt(i);
-    //     console.log(comparisonChar)
-
-    //     if (chars.includes(comparisonChar)) {
-    //         valid = true;
-    //     }
-    //     console.log(valid)
-    // }
-    // document.getElementById("input-box").value = "";
-    // console.log(inputVal)
 }
 
 // Count how many times a character appears in a string.
 function countAppearances(string,char) {
     var re = new RegExp(char, "gi");
+    // Return the number of times char appears in string
     return string.match(re).length;
 }
