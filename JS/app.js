@@ -239,10 +239,56 @@ function randomVowel() {
 const submitButton = document.getElementById("submit-btn")
 
 function checkInput() {
-
+    let validWord = true;
     // Retrieve user input
+    let inputVal = document.getElementById("input-box").value;
+    console.log(inputVal)
     // Retrieve characters from cards
-    // Check if characters from cards include user input characters
+    // Check if characters from cards include user input characters 
+    for (var i = 0; i < inputVal.length; i++) {
+
+        // Check each character of the input word against the letters given to the player.
+        let comparisonChar = inputVal.charAt(i);
+        console.log(comparisonChar)
+
+        // Check if the input only uses characters from the cards.
+        if (!(chars.includes(comparisonChar))) {
+            validWord = false;
+
+            // Alert the player if they used an invalid character
+            alert("Invalid word! - You used a character not present on the board.")
+
+            // Clear the input field for easier input of new word.
+            document.getElementById("input-box").value = '';
+
+            // Break the loop as there is no point looking at the rest of the input word if one character is wrong.
+            break;
+        }
+
+        // For a character c, count how many times that character appears in the available characters
+        //  and how many times it is used in the user's input.
+        //  Users input must use character c <= number of times as it appears in the list of available characters.
+
+        let appearencesInChars = countAppearances(chars, comparisonChar);
+        let appearancesInInput = countAppearances(inputVal, comparisonChar);
+
+        if (appearancesInInput > appearencesInChars) {
+            validWord = false;
+            
+            // Alert the player if they used a character too many times.
+            alert("Invalid word! - You used %c too many times.", comparisonChar)
+            
+            // Clear the input field for easier input of new word.
+            document.getElementById("input-box").value = '';
+
+            // Break the loop as there is no point looking at the rest of the input word if one character is wrong.
+            break;
+        }
+
+        document.getElementById("input-box").value = "";
+
+    }
+
     // Count the number of times each letter appears in the cards, and make 
     //  sure that the number of times it appears in input is <= the number of appearances in cards.
 
@@ -260,4 +306,10 @@ function checkInput() {
     // }
     // document.getElementById("input-box").value = "";
     // console.log(inputVal)
+}
+
+// Count how many times a character appears in a string.
+function countAppearances(string,char) {
+    var re = new RegExp(char, "gi");
+    return string.match(re).length;
 }
