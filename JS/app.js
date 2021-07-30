@@ -289,6 +289,12 @@ function checkInput() {
 
     }
 
+    if (validWord) {
+        // Record the length of the input word.
+        // Add the length value to the player score (1 point per character).
+        // Add the word itself to some array or something. Display the word down beneath the input box.
+    }
+
 }
 
 // Count how many times a character appears in a string.
