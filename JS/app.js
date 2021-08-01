@@ -1,5 +1,27 @@
 // ----------  ----------
 
+// ---------- Function to handle sounds ----------
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+}
+
+// ---------- Initialise sounds ----------
+
+var countdownAudio = new sound("mp3/clock-ticking-4.mp3");
+var timeUpAudio = new sound("mp3/alarm-clock-01.mp3");
+
 // ---------- Initialise player inputs array ----------
 
 var wordArray = ["YOUR WORDS:"];
@@ -67,7 +89,6 @@ var timeOut;
 function startTimer(minutes) {
 
     time_limit = ((minutes * 60 ) * 1000);
-    // var minutes = $( '#set-time' ).val();
     clearInterval(interval)
 
     
@@ -79,7 +100,7 @@ function startTimer(minutes) {
     timeOut = setTimeout(
         function() 
         {
-          alert( 'Game Over! - Click "Reset" in the menu to play again' );
+          timeUpAudio.play();
           alert('Your score is: ' + sessionStorage.getItem('playerScore'));
           inputBox.disabled = true;
           submitButton.disabled = true;
@@ -178,6 +199,7 @@ function populateCard(char) {
         inputBox.disabled = false;
         submitButton.disabled = false;
         startTimer(0.5)
+        countdownAudio.play();
     }
     cardCount++
     console.log(cardCount)
@@ -215,7 +237,13 @@ function checkInput() {
     let inputVal = document.getElementById("input-box").value;
     console.log(inputVal)
     // Retrieve characters from cards
-    // Check if characters from cards include user input characters 
+    // Check if characters from cards include user input characters
+    if (inputVal.length === 0) {
+        validWord = false
+        alert('Inavlid input! - You must enter a valid word.')
+        document.getElementById("input-box").value = "";
+    }
+
     for (var i = 0; i < inputVal.length; i++) {
 
         // Check each character of the input word against the letters given to the player.
@@ -281,3 +309,4 @@ function countAppearances(string,char) {
     // Return the number of times char appears in string
     return string.match(re).length;
 }
+
