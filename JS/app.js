@@ -1,5 +1,14 @@
 // ----------  ----------
 
+// ---------- Initialise player inputs array ----------
+
+var wordArray = ["YOUR WORDS:"];
+sessionStorage.setItem('words', JSON.stringify(wordArray));
+
+// ---------- Initialise player score ----------
+
+sessionStorage.setItem('playerScore', 0);
+
 // ---------- Define consonants and vowels ----------
 
 sessionStorage.setItem('consonants', 'BCDFGHJKLMNPQRSTVWXYZ');
@@ -71,6 +80,7 @@ function startTimer(minutes) {
         function() 
         {
           alert( 'Game Over! - Click "Reset" in the menu to play again' );
+          alert('Your score is: ' + sessionStorage.getItem('playerScore'));
           inputBox.disabled = true;
           submitButton.disabled = true;
         }, time_limit );
@@ -181,10 +191,7 @@ function populateCard(char) {
 function randomConsonant() {
     var randCons = '';
     let consonants = sessionStorage.getItem('consonants');
-    // console.log(consonants)
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
-    // updatedConsonants = consonants.replace(randCons, '');
-    // sessionStorage.setItem('consonants', updatedConsonants);    // console.log(randCons)
     populateCard(randCons)
 }
 
@@ -193,45 +200,9 @@ function randomConsonant() {
 function randomVowel() {
     var randVowel = '';
     let vowels = sessionStorage.getItem('vowels');
-    // console.log(vowels)
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
-    // updatedVowels = vowels.replace(randVowel, '');
-    // sessionStorage.setItem('vowels', updatedVowels);
     populateCard(randVowel)
 }
-
-// ---------- Testing random consonant and vowel generation ----------
-
-// Test the random consonant feature.
-
-// random1 = randomConsonant();
-// random2 = randomConsonant();
-// random3 = randomConsonant();
-// random4 = randomConsonant();
-// random5 = randomConsonant();
-// random6 = randomConsonant();
-// random7 = randomConsonant();
-// random8 = randomConsonant();
-
-
-// console.log(random1)
-// console.log(random2)
-// console.log(random3)
-// console.log(random4)
-// console.log(random5)
-// console.log(random6)
-// console.log(random7)
-
-// Test the random vowel feature.
-
-// random1 = randomVowel();
-// random2 = randomVowel();
-// random3 = randomVowel();
-
-
-// console.log(random1)
-// console.log(random2)
-// console.log(random3)
 
 
 // ---------- Validating user input ----------
@@ -291,8 +262,15 @@ function checkInput() {
 
     if (validWord) {
         // Record the length of the input word.
+        let points = inputVal.length;
         // Add the length value to the player score (1 point per character).
+        let currentScore = parseInt(sessionStorage.getItem('playerScore'));
+        let updatedScore = currentScore + points;
+        sessionStorage.setItem('playerScore', updatedScore);
         // Add the word itself to some array or something. Display the word down beneath the input box.
+        wordArray.push(inputVal);
+        sessionStorage.setItem('words', JSON.stringify(wordArray));
+        
     }
 
 }
