@@ -486,3 +486,14 @@ background: #e5554e;
      display: grid;
      place-items: center;
  }
+
+ #words-heading, #score-heading {
+     margin-bottom: 0px;
+     padding: 0px;
+ }
+
+ #words {
+     line-height: 2rem;
+     margin-top: 0px;
+     font-size:x-large;
+ }

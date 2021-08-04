@@ -26,12 +26,13 @@ var timeUpAudio = new sound("mp3/alarm-clock-01.mp3");
 
 // ---------- Initialise player inputs array ----------
 
-var wordArray = ["YOUR WORDS:"];
+var wordArray = [];
 
 // ---------- Initialise player score ----------
 
 function newGameScore() {
     myStorage.setItem('playerScore', 0);  
+    myStorage.setItem('words', [""]);
 }
 
 try {
@@ -344,6 +345,8 @@ function displayWords() {
     let wordsDisplay = document.getElementById("words")
     let validWords = JSON.parse(myStorage.getItem('words'));
     console.log(validWords);
-    wordsDisplay.innerText = validWords;
+    validWords.forEach(element => {
+        wordsDisplay.innerText += element + "\n";
+    });
 
 }
