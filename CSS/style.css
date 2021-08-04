@@ -138,7 +138,7 @@ main p {
 
 /* Style the navbar icons */
 
-.play, .stop, .reset, .theme, .menu-logo{
+.play, .stop, .reset, .theme, .menu-logo, .home{
     color:var(--accent-colour);
     transition: var(--transition-speed);
 }
@@ -477,4 +477,12 @@ background: #e5554e;
 
  .instructions li {
      margin: 1rem;
+ }
+
+ /* ---- Score page styling ---- */
+
+ /* Score display styline */
+ .score-display, .words-display {
+     display: grid;
+     place-items: center;
  }

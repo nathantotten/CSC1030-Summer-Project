@@ -1,5 +1,7 @@
 // ----------  ----------
 
+myStorage = window.sessionStorage;
+
 // ---------- Function to handle sounds ----------
 
 function sound(src) {
@@ -25,16 +27,23 @@ var timeUpAudio = new sound("mp3/alarm-clock-01.mp3");
 // ---------- Initialise player inputs array ----------
 
 var wordArray = ["YOUR WORDS:"];
-sessionStorage.setItem('words', JSON.stringify(wordArray));
 
 // ---------- Initialise player score ----------
 
-sessionStorage.setItem('playerScore', 0);
+function newGameScore() {
+    myStorage.setItem('playerScore', 0);  
+}
+
+try {
+    myStorage.getItem('playerScore');
+} catch (error) {
+    myStorage.setItem('playerScore', 0);
+}
 
 // ---------- Define consonants and vowels ----------
 
-sessionStorage.setItem('consonants', 'BCDFGHJKLMNPQRSTVWXYZ');
-sessionStorage.setItem('vowels', 'AEIOU');
+myStorage.setItem('consonants', 'BCDFGHJKLMNPQRSTVWXYZ');
+myStorage.setItem('vowels', 'AEIOU');
 
 // ---------- Theme Changer ----------
 
@@ -100,8 +109,7 @@ function startTimer(minutes) {
     timeOut = setTimeout(
         function() 
         {
-          timeUpAudio.play();
-          alert('Your score is: ' + sessionStorage.getItem('playerScore'));
+          openScorePage();
           inputBox.disabled = true;
           submitButton.disabled = true;
         }, time_limit );
@@ -184,13 +192,13 @@ const cardsArray = Array.from(cards)
 const inputBox = document.getElementById("input-box")
 var cardInFocus;
 var chars = "";
-sessionStorage.setItem('count', 0);
+myStorage.setItem('count', 0);
 
 // console.log(cardInFocus.innerHTML)
 
 // By default, start with focus on the first card
 function populateCard(char) {
-    var cardCount = sessionStorage.getItem('count');
+    var cardCount = myStorage.getItem('count');
     cardInFocus = cardsArray[cardCount]
     cardInFocus.innerHTML = char
     chars = chars.concat(char);
@@ -203,7 +211,7 @@ function populateCard(char) {
     }
     cardCount++
     console.log(cardCount)
-    sessionStorage.setItem('count', cardCount);
+    myStorage.setItem('count', cardCount);
 }
 
 // ---------- Generation of random vowels and consonants ----------
@@ -212,7 +220,7 @@ function populateCard(char) {
 
 function randomConsonant() {
     var randCons = '';
-    let consonants = sessionStorage.getItem('consonants');
+    let consonants = myStorage.getItem('consonants');
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
     populateCard(randCons)
 }
@@ -221,7 +229,7 @@ function randomConsonant() {
 
 function randomVowel() {
     var randVowel = '';
-    let vowels = sessionStorage.getItem('vowels');
+    let vowels = myStorage.getItem('vowels');
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
     populateCard(randVowel)
 }
@@ -292,13 +300,16 @@ function checkInput() {
         // Record the length of the input word.
         let points = inputVal.length;
         // Add the length value to the player score (1 point per character).
-        let currentScore = parseInt(sessionStorage.getItem('playerScore'));
+        let currentScore = parseInt(myStorage.getItem('playerScore'));
         let updatedScore = currentScore + points;
-        sessionStorage.setItem('playerScore', updatedScore);
+        myStorage.setItem('playerScore', updatedScore);
+        console.log(JSON.parse(myStorage.getItem('playerScore')));
+
         // Add the word itself to some array or something. Display the word down beneath the input box.
         wordArray.push(inputVal);
-        sessionStorage.setItem('words', JSON.stringify(wordArray));
-        
+        myStorage.setItem('words', JSON.stringify(wordArray));
+        console.log(JSON.parse(myStorage.getItem('words')));
+
     }
 
 }
@@ -310,3 +321,29 @@ function countAppearances(string,char) {
     return string.match(re).length;
 }
 
+// ---------- Displaying the user score ----------
+
+function openScorePage() {
+    window.location = 'scoreboard.html';
+}
+
+function playAlarm() {
+    timeUpAudio.play();
+    timeUp = setTimeout(function(){timeUpAudio.stop()}, 1750);
+
+}
+
+function displayScore() {
+    let scoreSpan = document.getElementById("score-span");
+    let score = myStorage.getItem('playerScore');
+    console.log(score);
+    scoreSpan.innerText = score;
+}
+
+function displayWords() {
+    let wordsDisplay = document.getElementById("words")
+    let validWords = JSON.parse(myStorage.getItem('words'));
+    console.log(validWords);
+    wordsDisplay.innerText = validWords;
+
+}

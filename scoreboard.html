@@ -28,7 +28,7 @@
 
     <script defer src="JS/app.js"></script>
   </head>
-  <body>
+  <body onload="displayScore(); displayWords(); playAlarm();">
     <!-- Responsive navbar/menu -->
 
     <nav class="navbar">
@@ -44,25 +44,16 @@
           </a>
         </li>
 
-        <!-- First menu item - Play game -->
+        <!-- First menu item - Home screen -->
 
-        <li class="nav-item" id="play">
-          <a href="#" class="nav-link">
-            <span class="play"> <i class="fas fa-play fa-2x"></i> </span>
-            <span class="link-text">Start</span>
+        <li class="nav-item" id="home">
+          <a href="index.html" class="nav-link">
+            <span class="home"> <i class="fas fa-home fa-2x"></i> </span>
+            <span class="link-text">Home</span>
           </a>
         </li>
 
-        <!-- Second menu item - Reset game -->
-
-        <li class="nav-item" id="reset" onclick="reset()">
-          <a href="#" class="nav-link">
-            <span class="reset"> <i class="fas fa-history fa-2x"></i> </span>
-            <span class="link-text">Reset</span>
-          </a>
-        </li>
-
-        <!-- Third menu item - Cycle between themes -->
+        <!-- Second menu item - Cycle between themes -->
 
         <li class="nav-item" id="themeButton">
           <a href="#" class="nav-link">
@@ -96,9 +87,17 @@
       <!-- This page will display the player score and the words they entered. -->
       <h1>Countdown</h1>
       <!-- Add a display for the player score -->
-
-      <!-- Add some kind of congratulatory message -->
+      <section class="score-display">
+        YOUR SCORE IS: <span id="score-span"></span>
+      </section>
+      <br />
+      <!-- Display the words to the player -->
+      <section class="words-display">
+        <h2>your words:</h2>
+        <p id="words"></p>
+      </section>
       <!-- Add a "Let's play again!" button or something similar - just brings the player back to the landing page -->
+      <p>Click on the "Home" button to play again!</p>
     </main>
   </body>
 </html>
