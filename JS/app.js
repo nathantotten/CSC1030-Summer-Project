@@ -213,7 +213,6 @@ function populateCard(char) {
     cardInFocus = cardsArray[cardCount]
     cardInFocus.innerHTML = char
     chars = chars.concat(char);
-    console.log(chars)
     if (cardCount == 9) {
         inputBox.disabled = false;
         submitButton.disabled = false;
@@ -221,7 +220,6 @@ function populateCard(char) {
         countdownAudio.play();
     }
     cardCount++
-    console.log(cardCount)
     myStorage.setItem('count', cardCount);
 }
 
@@ -254,7 +252,6 @@ function checkInput() {
     let validWord = true;
     // Retrieve user input
     let inputVal = document.getElementById("input-box").value;
-    console.log(inputVal)
     // Retrieve characters from cards
     // Check if characters from cards include user input characters
     if (inputVal.length === 0) {
@@ -357,12 +354,10 @@ function checkInput() {
         let currentScore = parseInt(myStorage.getItem('playerScore'));
         let updatedScore = currentScore + points;
         myStorage.setItem('playerScore', updatedScore);
-        console.log(JSON.parse(myStorage.getItem('playerScore')));
 
         // Add the word itself to some array or something. Display the word down beneath the input box.
         wordArray.push(inputVal);
         myStorage.setItem('words', JSON.stringify(wordArray));
-        console.log(JSON.parse(myStorage.getItem('words')));
 
     }
 
@@ -390,14 +385,12 @@ function playAlarm() {
 function displayScore() {
     let scoreSpan = document.getElementById("score-span");
     let score = myStorage.getItem('playerScore');
-    console.log(score);
     scoreSpan.innerText = score;
 }
 
 function displayWords() {
     let wordsDisplay = document.getElementById("words")
     let validWords = JSON.parse(myStorage.getItem('words'));
-    console.log(validWords);
     validWords.forEach(element => {
         wordsDisplay.innerText += element + "\n";
     });
