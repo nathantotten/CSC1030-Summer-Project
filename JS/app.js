@@ -300,6 +300,13 @@ function checkInput() {
     if (validWord) {
         // Record the length of the input word.
         let points = inputVal.length;
+
+        // Bonus points for longer words.
+        if (points >= 5) {
+            // If a word is greater than 5 letters, add an additional 5 points to the score for that word.
+            points += 5;
+        }
+
         // Add the length value to the player score (1 point per character).
         let currentScore = parseInt(myStorage.getItem('playerScore'));
         let updatedScore = currentScore + points;
