@@ -297,6 +297,11 @@ function checkInput() {
 
     }
 
+    if (searchStringInArray(inputVal, wordArray)) {
+        validWord = false;
+        alert("Invalid word! - This word has already been input.")
+    }
+
     if (validWord) {
         // Record the length of the input word.
         let points = inputVal.length;
@@ -357,3 +362,12 @@ function displayWords() {
     });
 
 }
+
+// Search a String array for a given string.
+function searchStringInArray(str, strArray) {
+    for (var j=0; j<strArray.length; j++) {
+        if (strArray[j].match(str)) return true;
+    }
+    return false;
+}
+
