@@ -28,6 +28,16 @@ var timeUpAudio = new sound("mp3/alarm-clock-01.mp3");
 
 var wordArray = [];
 
+// ---------- Defining arrays for characters responding to different points groups ----------
+
+let onePointChars = ["A", "E", "I", "L", "N", "O", "R", "S", "T", "U"];
+let twoPointsChars = ["D", "G"];
+let threePointsChars = ["B", "C", "M", "P"];
+let fourPointsChars = ["F", "H", "V", "W", "Y"];
+let fivePointsChars = ["K"];
+let eightPointsChars = ["J", "X"];
+let tenPointsChars = ["Q", "Z"];
+
 // ---------- Initialise player score ----------
 
 function newGameScore() {
