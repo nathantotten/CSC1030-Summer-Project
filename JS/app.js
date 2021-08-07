@@ -267,7 +267,6 @@ function checkInput() {
 
         // Check each character of the input word against the letters given to the player.
         let comparisonChar = inputVal.charAt(i);
-        console.log(comparisonChar)
 
         // Check if the input only uses characters from the cards.
         if (!(chars.includes(comparisonChar))) {
@@ -314,15 +313,47 @@ function checkInput() {
 
     if (validWord) {
         // Record the length of the input word.
-        let points = inputVal.length;
+        var points;
+
+        for (var i = 0; i < inputVal.length; i++) {
+            comparisonChar = inputVal.charAt(i);
+            // Add 1 point if char in one point char array.
+            if (searchStringInArray(comparisonChar, onePointChars)) {
+                points += 1;
+            }
+            // Add 2 points if char in two points char array.
+            else if (searchStringInArray(comparisonChar, twoPointsChars)) {
+                points += 2;
+            }
+            // Add 3 points if char in 3 points char array.
+            else if (searchStringInArray(comparisonChar, threePointsChars)) {
+                points += 3;
+            }
+            // Add 4 points if char in 4 points char array.
+            else if (searchStringInArray(comparisonChar, fourPointsChars)) {
+                points += 4;
+            }
+            // Add 5 points if char in 5 points char array.
+            else if (searchStringInArray(comparisonChar, fivePointsChars)) {
+                points += 5;
+            }
+            // Add 8 points if char in 8 points char array.
+            else if (searchStringInArray(comparisonChar, eightPointsChars)) {
+                points += 8;
+            }
+            // Add 10 points if char in 10 points char array.
+            else if (searchStringInArray(comparisonChar, tenPointsChars)) {
+                points += 10;
+            }
+        }
 
         // Bonus points for longer words.
-        if (points >= 5) {
+        if (inputVal.length >= 5) {
             // If a word is greater than 5 letters, add an additional 5 points to the score for that word.
             points += 5;
         }
 
-        // Add the length value to the player score (1 point per character).
+        // Add the length value to the player score.
         let currentScore = parseInt(myStorage.getItem('playerScore'));
         let updatedScore = currentScore + points;
         myStorage.setItem('playerScore', updatedScore);
