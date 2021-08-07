@@ -313,7 +313,7 @@ function checkInput() {
 
     if (validWord) {
         // Record the length of the input word.
-        var points;
+        var points = 0;
 
         for (var i = 0; i < inputVal.length; i++) {
             comparisonChar = inputVal.charAt(i);
