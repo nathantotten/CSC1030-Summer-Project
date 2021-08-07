@@ -204,7 +204,7 @@ function populateCard(char) {
     cardInFocus.innerHTML = char
     chars = chars.concat(char);
     console.log(chars)
-    if (cardCount == 11) {
+    if (cardCount == 9) {
         inputBox.disabled = false;
         submitButton.disabled = false;
         startTimer(0.5)
