@@ -358,7 +358,7 @@ function checkInput() {
             points += 5;
         }
 
-        // Add the length value to the player score.
+        // Add the calculated points value to the player score.
         let currentScore = parseInt(myStorage.getItem('playerScore'));
         let updatedScore = currentScore + points;
         myStorage.setItem('playerScore', updatedScore);
