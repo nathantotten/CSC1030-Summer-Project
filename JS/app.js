@@ -228,20 +228,28 @@ function populateCard(char) {
 // Generate a random consonant.
 
 function randomConsonant() {
+    // Define an empty string for the randomly selected character.
     var randCons = '';
+    // Retrieve all consonants from session storage.
     let consonants = myStorage.getItem('consonants');
+    // Update the random consonant string with a character selected
+    //  at random from the string of consonants.
     randCons += consonants.charAt(Math.floor(Math.random() * consonants.length))
+    // Call the function to display the character in the next available card.
     populateCard(randCons)
 }
 
 // Generate a random vowel.
 
 function randomVowel() {
+    // Functions identically to randomConsonant() except
+    //  characters are retrieved from a string of the available vowels.
     var randVowel = '';
     let vowels = myStorage.getItem('vowels');
     randVowel += vowels.charAt(Math.floor(Math.random() * vowels.length))
     populateCard(randVowel)
 }
+
 
 
 // ---------- Validating user input ----------
