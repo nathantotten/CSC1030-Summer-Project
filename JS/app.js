@@ -363,7 +363,7 @@ function checkInput() {
         let updatedScore = currentScore + points;
         myStorage.setItem('playerScore', updatedScore);
 
-        // Add the word itself to some array or something. Display the word down beneath the input box.
+        // Add the word itself to an array to be displayed later.
         wordArray.push(inputVal);
         myStorage.setItem('words', JSON.stringify(wordArray));
 
