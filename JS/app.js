@@ -408,7 +408,7 @@ function displayWords() {
 // Search a String array for a given string.
 function searchStringInArray(str, strArray) {
     for (var j=0; j<strArray.length; j++) {
-        if (strArray[j].match(str)) return true;
+        if (strArray[j] === str) return true;
     }
     return false;
 }
